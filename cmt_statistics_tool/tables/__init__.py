@@ -23,14 +23,15 @@ from cmt_statistics_tool.tables.seniormetareview import (  # noqa: E402
     SubmissionSeniormetareview,
 )
 
-engine = create_async_engine(
-    # Please change this connection string to your specification
-    "postgresql+asyncpg://postgres:root@localhost/cmt_statistics_tool",
-    echo=False,
-)
-async_session = sessionmaker(
-    engine, expire_on_commit=False, class_=AsyncSession, autoflush=False
-)
+def get_new_engine() -> any:
+    return create_async_engine(
+        # Please change this connection string to your specification
+        "postgresql+asyncpg://postgres:postgres@localhost/CMT_STATISTICS",
+        echo=False,
+    )
+
+engine = get_new_engine()
+async_session = sessionmaker(get_new_engine(), expire_on_commit=False, class_=AsyncSession, autoflush=False)
 
 __all__ = (
     "Base",

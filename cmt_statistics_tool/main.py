@@ -35,9 +35,9 @@ async def create_tables() -> None:
 async def insert_data() -> None:
     await insert_people("data/people.txt")
     await insert_papers("data/papers.xlsx")
-    await insert_reviews("data/reviews.xlsx")
-    await insert_metareviews("data/metareviews.xlsx")
-    await insert_submission_revision_mapping("data/mapping.xlsx")
+    #await insert_reviews("data/reviews.xlsx")
+    #await insert_metareviews("data/metareviews.xlsx")
+    #await insert_submission_revision_mapping("data/mapping.xlsx")
 
 
 def main() -> None:
